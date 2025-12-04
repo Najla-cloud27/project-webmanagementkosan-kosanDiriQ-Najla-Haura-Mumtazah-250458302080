@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('size', 50)->nullable();
-            $table->enum('status', ['tersedia', 'terisi', 'perawatan', 'sudah_dipesan'])->default('tersedia');
+            $table->enum('status', ['tersedia', 'terisi', 
+            'perawatan', 'sudah_dipesan'])->default('tersedia');
             $table->text('fasilitas')->nullable();
             $table->integer('stok')->default(0);
             $table->string('main_image_url')->nullable();

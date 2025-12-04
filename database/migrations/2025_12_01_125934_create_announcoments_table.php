@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('announcoments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('admin_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('admin_id')->
+            constrained('users')->onDelete('cascade');
             $table->string('title');
             $table->text('content');
-            $table->enum('publish_status', ['draf', 'diterbitkan'])->default('draf');
+            $table->enum('publish_status', 
+            ['draf', 'diterbitkan'])->default('draf');
             $table->string('image_url')->nullable();
             $table->timestamps();
         });

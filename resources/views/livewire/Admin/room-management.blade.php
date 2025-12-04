@@ -43,6 +43,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Kamar</th>
+                                <th>Image</th>
                                 <th>Deskripsi</th>
                                 <th>Ukuran</th>
                                 <th>Harga/Bulan</th>
@@ -56,6 +57,7 @@
                             <tr>
                                 <td>{{ $rooms->firstItem() + $index }}</td>
                                 <td><strong>{{ $room->name }}</strong></td>
+                                <td>{{ $room->main_img_url}}</td>
                                 <td>{{ Str::limit($room->description, 40) }}</td>
                                 <td>{{ $room->size }}</td>
                                 <td>Rp {{ number_format($room->price, 0, ',', '.') }}</td>

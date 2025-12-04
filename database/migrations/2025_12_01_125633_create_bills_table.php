@@ -13,15 +13,19 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('booking_id')->nullable()->constrained('bookings')->onDelete('cascade');
+            $table->foreignId('user_id')->
+            constrained('users')->onDelete('cascade');
+            $table->foreignId('booking_id')->nullable()->
+            constrained('bookings')->onDelete('cascade');
             $table->string('bill_code')->unique();
             $table->text('description')->nullable();
-            $table->decimal('amount', 15, 2);
+            $table->decimal('total_amount', 15, 2);
             $table->date('due_date')->nullable();
             $table->date('payment_date')->nullable();
             $table->string('payment_method')->nullable();
-            $table->enum('status', ['belum_dibayar', 'menunggu_verifikasi', 'dibayar', 'overdue'])->default('belum_dibayar');
+            $table->enum('status', ['belum_dibayar', '
+            menunggu_verifikasi', 'dibayar', 'overdue'])->
+            default('belum_dibayar');
             $table->timestamps();
         });
     }

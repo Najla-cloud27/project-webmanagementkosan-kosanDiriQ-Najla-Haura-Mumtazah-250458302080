@@ -19,7 +19,7 @@
                     <div class="text-center">
                         @if(Auth::user()->avatar_url)
                             <img class="profile-user-img img-fluid img-circle" 
-                                 src="{{ asset('storage/' . Auth::user()->avatar_url) }}" 
+                                 src="{{ asset('storage/avatars/' . Auth::user()->avatar_url) }}" 
                                  alt="User profile picture">
                         @else
                             <img class="profile-user-img img-fluid img-circle" 

@@ -93,7 +93,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ \App\Helpers\AvatarHelper::getAvatar(auth()->user(), 50) }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('storage/avatars/' . Auth::user()->avatar_url) }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{ route('penyewa.profile') }}" class="d-block">{{ auth()->user()->name }}</a>

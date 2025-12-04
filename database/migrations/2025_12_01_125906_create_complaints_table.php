@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('complaints', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('room_id')->constrained('rooms')->onDelete('cascade');
+            $table->foreignId('user_id')->
+            constrained('users')->onDelete('cascade');
+            $table->foreignId('room_id')->
+            constrained('rooms')->onDelete('cascade');
             $table->string('title');
             $table->text('description');
             $table->string('image_url')->nullable();
             $table->enum('status', 
-            ['dikirim', 'diproses', 'ditolak', 'selesai'])->default('dikirim');
+            ['dikirim', 'diproses', 
+            'ditolak', 'selesai'])->default('dikirim');
             $table->timestamps();
         });
     }
