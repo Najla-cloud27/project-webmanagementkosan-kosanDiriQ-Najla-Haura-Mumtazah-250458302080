@@ -57,7 +57,7 @@
                         <td><strong>{{ $bill->bill_code }}</strong></td>
                         <td>{{ $bill->user->name }}</td>
                         <td>{{ $bill->booking ? $bill->booking->booking_code : '-' }}</td>
-                        <td>Rp {{ number_format($bill->amount, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($bill->total_amount, 0, ',', '.') }}</td>
                         <td>{{ \Carbon\Carbon::parse($bill->due_date)->format('d M Y') }}</td>
                         <td>
                             @if($bill->status == 'belum_dibayar')
@@ -173,7 +173,7 @@
                         </tr>
                         <tr>
                             <th>Total Tagihan</th>
-                            <td><strong>Rp {{ number_format($selectedBill->amount, 0, ',', '.') }}</strong></td>
+                            <td><strong>Rp {{ number_format($selectedBill->total_amount, 0, ',', '.') }}</strong></td>
                         </tr>
                         <tr>
                             <th>Tanggal Jatuh Tempo</th>

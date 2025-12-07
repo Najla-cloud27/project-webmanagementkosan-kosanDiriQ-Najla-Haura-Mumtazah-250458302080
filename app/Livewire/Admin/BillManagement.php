@@ -53,7 +53,7 @@ class BillManagement extends Component
         ]);
 
         session()->flash('success', 'Tagihan berhasil dibuat!');
-        $this->reset(['booking_id', 'amount', 'due_date', 'description']);
+        $this->reset(['booking_id', 'total_amount', 'due_date', 'description']);
     }
 
     public $showDetailModal = false;
