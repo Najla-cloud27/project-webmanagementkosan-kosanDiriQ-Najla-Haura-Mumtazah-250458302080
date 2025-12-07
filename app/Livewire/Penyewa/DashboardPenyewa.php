@@ -27,7 +27,7 @@ class DashboardPenyewa extends Component
                 ->count(),
             'totalSpent' => Bills::where('user_id', $user->id)
                 ->where('status', 'dibayar')
-                ->sum('amount')
+                ->sum('total_amount')
         ];
         
         // Get recent data

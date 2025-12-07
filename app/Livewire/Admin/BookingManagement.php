@@ -137,7 +137,7 @@ class BookingManagement extends Component
                     'user_id' => $booking->user_id,
                     'booking_id' => $booking->id,
                     'bill_code' => 'BILL-' . time() . rand(1000, 9999),
-                    'amount' => $booking->total_price,
+                    'total_amount' => $booking->total_price,
                     'due_date' => now()->addDays(3),
                     'description' => 'Pembayaran booking kamar ' . $booking->room->name,
                     'status' => 'dibayar',

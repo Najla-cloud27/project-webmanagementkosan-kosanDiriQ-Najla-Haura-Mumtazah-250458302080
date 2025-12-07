@@ -67,7 +67,7 @@ class AvatarHelper
     public static function getAvatar($user, $size = 200)
     {
         if (!empty($user->avatar_url)) {
-            return asset('storage/' . $user->avatar_url);
+            return asset('storage/avatars' . $user->avatar_url);
         }
         
         return self::generate($user->name, $size);

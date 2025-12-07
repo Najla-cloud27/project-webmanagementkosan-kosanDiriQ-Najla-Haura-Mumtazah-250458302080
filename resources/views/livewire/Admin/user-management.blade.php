@@ -114,7 +114,7 @@
     <!-- Modal -->
     @if($showModal)
     <div class="modal fade show" style="display: block; background: rgba(0,0,0,0.5);">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">{{ $editMode ? 'Edit Pengguna' : 'Tambah Pengguna' }}</h4>
@@ -122,7 +122,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
                     <form>
                         <div class="form-group">
                             <label>Nama Lengkap <span class="text-danger">*</span></label>

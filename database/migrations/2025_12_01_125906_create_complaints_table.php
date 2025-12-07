@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image_url')->nullable();
-            $table->enum('status', 
-            ['dikirim', 'diproses', 
+            $table->enum('status', ['dikirim', 'diproses', 
             'ditolak', 'selesai'])->default('dikirim');
             $table->timestamps();
         });

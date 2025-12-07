@@ -47,6 +47,7 @@
                         <th>Kamar</th>
                         <th>Durasi</th>
                         <th>Total Harga</th>
+                        <th>Catatan</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -60,6 +61,8 @@
                         <td>{{ $booking->room->name }}</td>
                         <td>{{ $booking->duration_in_months }} bulan</td>
                         <td>Rp {{ number_format($booking->total_price, 0, ',', '.') }}</td>
+                        {{-- ⬇⬇ Tambahkan ini untuk menampilkan catatan --}}
+                        <td>{{ $booking->notes, 40 ?? '-' }}</td>
                         <td>
                             @if($booking->status == 'pending')
                                 <span class="badge badge-warning">Pending</span>

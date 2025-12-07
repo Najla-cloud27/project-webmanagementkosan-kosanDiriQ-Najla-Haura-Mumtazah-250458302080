@@ -12,21 +12,26 @@ class BillManagement extends Component
 {
     use WithPagination;
 
+     // filter & pencarian
     public $search = '';
     public $statusFilter = '';
+    
+    // modal tambah tagihan
+    public $showModal = false;   
     
     // Form create bill
     public $booking_id;
     public $user_id;
-    public $amount;
+    public $total_amount;
     public $due_date;
     public $description;
 
     protected $paginationTheme = 'bootstrap';
 
+    // Aturan Validasi
     protected $rules = [
         'booking_id' => 'required|exists:bookings,id',
-        'amount' => 'required|numeric|min:0',
+        'total_amount' => 'required|numeric|min:0',
         'due_date' => 'required|date',
         'description' => 'nullable|string',
     ];
@@ -41,7 +46,7 @@ class BillManagement extends Component
             'user_id' => $booking->user_id,
             'booking_id' => $this->booking_id,
             'bill_code' => 'BILL-' . time() . rand(1000, 9999),
-            'amount' => $this->amount,
+            'total_amount' => $this->total_amount,
             'due_date' => $this->due_date,
             'description' => $this->description,
             'status' => 'belum_dibayar',

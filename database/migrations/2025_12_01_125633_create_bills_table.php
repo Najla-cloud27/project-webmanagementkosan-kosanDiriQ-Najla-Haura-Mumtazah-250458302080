@@ -23,8 +23,7 @@ return new class extends Migration
             $table->date('due_date')->nullable();
             $table->date('payment_date')->nullable();
             $table->string('payment_method')->nullable();
-            $table->enum('status', ['belum_dibayar', '
-            menunggu_verifikasi', 'dibayar', 'overdue'])->
+            $table->enum('status', ['belum_dibayar', 'menunggu_verifikasi', 'dibayar', 'overdue'])->
             default('belum_dibayar');
             $table->timestamps();
         });

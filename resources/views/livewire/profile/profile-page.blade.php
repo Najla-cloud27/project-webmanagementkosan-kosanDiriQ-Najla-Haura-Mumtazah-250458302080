@@ -18,7 +18,7 @@
                 <div class="card-body box-profile">
                     <div class="text-center">
                         @if(Auth::user()->avatar_url)
-                            <img class="profile-user-img img-fluid img-circle" 
+                            <img class="profile-user-img aimg-fluid img-circle" 
                                  src="{{ asset('storage/avatars/' . Auth::user()->avatar_url) }}" 
                                  alt="User profile picture">
                         @else

@@ -31,7 +31,7 @@ class DashboardAdmin extends Component
             'total_tenants' => User::where('role', 'penyewa')->count(),
             'active_bookings' => Bookings::whereIn('status', ['pending', 'menunggu_verifikasi', 'dikonfirmasi'])->count(),
             'unpaid_bills' => Bills::whereIn('status', ['belum_dibayar', 'overdue'])->count(),
-            'monthly_income' => Bills::where('status', 'dibayar')->whereMonth('payment_date', Carbon::now()->month)->sum('amount'),
+            'monthly_income' => Bills::where('status', 'dibayar')->whereMonth('payment_date', Carbon::now()->month)->sum('total_amount'),
             'pending_payments' => PaymentProofs::where('status', 'pending')->count(),
             'active_complaints' => Complaints::where('status', 'active')->count(),
         ];
@@ -39,7 +39,7 @@ class DashboardAdmin extends Component
         // ----- 6 MONTH REVENUE CHART -----
         $this->revenueChart = Bills::select(
                 DB::raw("DATE_FORMAT(created_at, '%Y-%m') as month"),
-                DB::raw("SUM(amount) as total")
+                DB::raw("SUM(total_amount) as total")
             )
             ->groupBy('month')
             ->orderBy('month')

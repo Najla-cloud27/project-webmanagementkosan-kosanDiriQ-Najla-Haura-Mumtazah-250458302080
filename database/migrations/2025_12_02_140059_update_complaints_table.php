@@ -12,9 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Update enum values for status
-        DB::statement("ALTER TABLE complaints MODIFY COLUMN status 
-        ENUM('pending', 'in_progress', 'resolved', 'rejected') DEFAULT 'pending'");
+    //     Update enum values for status
+    //     DB::statement("ALTER TABLE complaints MODIFY COLUMN status 
+    //     ENUM(('dikirim', 'diproses', 'ditolak', 'selesai') DEFAULT 'dikirim'");
     }
 
     /**
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement("ALTER TABLE complaints MODIFY COLUMN status 
-        ENUM('dikirim', 'diproses', 'ditolak', 'selesai') DEFAULT 'dikirim'");
+        // DB::statement("ALTER TABLE complaints MODIFY COLUMN status 
+        // ENUM('dikirim', 'diproses', 'ditolak', 'selesai') DEFAULT 'dikirim'");
     }
 };

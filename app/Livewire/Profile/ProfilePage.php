@@ -61,7 +61,7 @@ class ProfilePage extends Component
         if ($this->avatar) {
             // Delete old avatar if exists
             if ($user->avatar_url) {
-                Storage::delete('public/' . $user->avatar_url);
+                Storage::delete('storage/avatars' . $user->avatar_url);
             }
 
             // Store new avatar

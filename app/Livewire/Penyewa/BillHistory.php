@@ -49,11 +49,11 @@ class BillHistory extends Component
 
         $totalPaid = Bills::where('user_id', Auth::id())
             ->where('status', 'dibayar')
-            ->sum('amount');
+            ->sum('total_amount');
 
         $totalUnpaid = Bills::where('user_id', Auth::id())
             ->where('status', 'belum_dibayar')
-            ->sum('amount');
+            ->sum('total_amount');
 
         return view('livewire.penyewa.bill-history', compact('bills', 'totalPaid', 'totalUnpaid'));
     }
