@@ -37,7 +37,7 @@ class ComplaintManagement extends Component
     public function updateStatus()
     {
         $this->validate([
-            'newStatus' => 'required|in:pending,in_progress,resolved,rejected',
+            'newStatus' => 'required|in:dikirim,diproses,ditolak,selesai',
         ]);
 
         $this->selectedComplaint->update([

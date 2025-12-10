@@ -133,6 +133,7 @@ class BookingManagement extends Component
             
             // Auto-create bill for confirmed booking (only if not exists)
             if (!$booking->bill) {
+                // Jika tagiha belum ada
                 \App\Models\Bills::create([
                     'user_id' => $booking->user_id,
                     'booking_id' => $booking->id,
@@ -145,6 +146,7 @@ class BookingManagement extends Component
                 ]);
             } else {
                 // If bill exists, update status to dibayar
+                // Jika tagihan sudh ada
                 $booking->bill->update([
                     'status' => 'dibayar',
                     'payment_date' => now(),
@@ -152,6 +154,7 @@ class BookingManagement extends Component
             }
         } elseif ($status == 'dibatalkan') {
             // Return room to available
+            // jika booking dibatalkan
             $booking->room->update(['status' => 'tersedia']);
         }
         
@@ -182,9 +185,11 @@ class BookingManagement extends Component
             ->latest()
             ->paginate(10);
 
+            // Data Penyewa
         $users = User::where('role', 'penyewa')->get();
         
         // Get available rooms + current room if editing
+        // Data Kamar
         $rooms = Rooms::where('status', 'tersedia')
             ->when($this->editMode && $this->room_id, function($query) {
                 $query->orWhere('id', $this->room_id);

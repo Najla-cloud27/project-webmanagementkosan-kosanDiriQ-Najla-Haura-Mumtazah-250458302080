@@ -31,9 +31,9 @@
                                         <select wire:model="billStatus" class="form-control">
                                             <option value="">Semua Status</option>
                                             <option value="belum_dibayar">Belum Dibayar</option>
-                                            <option value="verifikasi_tertunda">Verifikasi Tertunda</option>
+                                            <option value="menunggu_verifikasi">Menunggu Verifikasi</option>
                                             <option value="dibayar">Dibayar</option>
-                                            <option value="terlambat">Terlambat</option>
+                                            <option value="overdue">Overdue</option>
                                         </select>
                                     </div>
                                     <button wire:click="exportBills" class="btn btn-success btn-block">

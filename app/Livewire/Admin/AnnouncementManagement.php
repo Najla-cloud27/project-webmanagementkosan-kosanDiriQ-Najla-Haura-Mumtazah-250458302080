@@ -14,7 +14,7 @@ class AnnouncementManagement extends Component
     public $title;
     public $content;
     public $image;
-    public $publish_status = 'draft';
+    public $publish_status = 'draf';
     public $editingId;
 
     protected $paginationTheme = 'bootstrap';
@@ -23,7 +23,7 @@ class AnnouncementManagement extends Component
         'title' => 'required|string|max:255',
         'content' => 'required|string',
         'image' => 'nullable|image|max:2048',
-        'publish_status' => 'required|in:draft,published',
+        'publish_status' => 'required|in:draf,diterbitkan',
     ];
 
     public function createAnnouncement()
@@ -36,7 +36,7 @@ class AnnouncementManagement extends Component
         }
 
         Announcoments::create([
-            'user_id' => \Illuminate\Support\Facades\Auth::id(),
+            'admin_id' => \Illuminate\Support\Facades\Auth::id(),
             'title' => $this->title,
             'content' => $this->content,
             'image_url' => $imagePath,
@@ -75,7 +75,8 @@ class AnnouncementManagement extends Component
         $announcement->update($data);
 
         session()->flash('success', 'Pengumuman berhasil diupdate!');
-        $this->reset(['title', 'content', 'image', 'publish_status', 'editingId']);
+        $this->reset(['title', 'content', 'image','editingId']);
+        $this->publish_status = 'draf';
     }
 
     public function deleteAnnouncement($id)

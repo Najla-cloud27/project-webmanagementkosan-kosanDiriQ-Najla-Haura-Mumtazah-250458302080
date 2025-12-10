@@ -23,7 +23,7 @@ Route::get('dashboard', function () {
 //     ->middleware(['auth', 'verified'])
 //     ->name('dashboard');
 
-// Public Routes
+// Public Routes untuk fitur kamar
 Route::view('/rooms', 'rooms.index')->name('rooms.index');
 Route::view('/rooms/{roomId}/book', 'rooms.book')->name('rooms.book');
 

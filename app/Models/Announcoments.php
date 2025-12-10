@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Announcoments extends Model
 {
      protected $fillable = [
-        'user_id',
+        'admin_id',
         'title',
         'content',
         'publish_status',
@@ -20,6 +20,6 @@ class Announcoments extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'admin_id');
     }
 }

@@ -35,12 +35,14 @@ class PaymentProofVerification extends Component
         ]);
 
         // Update booking status to dikonfirmasi
+        // perubahan booking
         if ($this->selectedProof->bill->booking) {
             $this->selectedProof->bill->booking->update([
                 'status' => 'dikonfirmasi',
             ]);
             
             // Update room status to sudah_dipesan
+            // perubahan kamar
             $this->selectedProof->bill->booking->room->update([
                 'status' => 'sudah_dipesan',
             ]);

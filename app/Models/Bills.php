@@ -11,7 +11,7 @@ class Bills extends Model
         'booking_id',
         'bill_code',
         'description',
-        'amount',
+        'total_amount',
         'due_date',
         'payment_date',
         'payment_method',
